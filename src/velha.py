@@ -7,11 +7,14 @@ TAM = (-1, 0, 1)
 TABULEIRO = []
 PECAS = []
 print("oi")
-pecas = [(box, sphere)] *9
-cores = [color.red, color.blue] *9
-TABULEIRO = [box(pos=(coluna*3, linha*3, 0), size=(2, 2, 2), opacity=0.2)
-             for coluna in TAM for linha in TAM for camada em TAM]
-cor = color.blue
-#peca, cor = pecas.pop()
-PECAS = [pecas.pop()(pos=(coluna*3, linha*3, 0), color=cores.pop(),  size=(1, 1, 1), opacity=0.6)
-            for coluna in TAM for linha in TAM]
+pecas = [(box, color.blue), (sphere, color.red)] *14
+cor = [color.red, color.blue] *14
+TABULEIRO = [box(pos=(coluna*3, linha*3, camada *3), size=(2, 2, 2), opacity=0.2)
+            for coluna in TAM
+            for linha in TAM
+            for camada in TAM]
+
+PECAS = [pecas.pop()[0](pos=(coluna*3, linha*3, camada *3), color=cor.pop(),  size=(1, 1, 1), opacity=0.6)
+            for coluna in TAM
+            for linha in TAM
+            for camada in TAM]
